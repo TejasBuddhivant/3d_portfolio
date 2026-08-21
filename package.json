@@ -1,26 +1,28 @@
 {
-  "name": "portfolio_app_ai",
-  "version": "0.1.0",
+  "name": "portfolio",
+  "version": "1.0.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+  "description": "Developer portfolio monorepo — Next.js + MUI + Redux Toolkit + Redux Saga + Axios",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=20.9.0"
   },
-  "dependencies": {
-    "next": "16.3.1",
-    "react": "19.2.8",
-    "react-dom": "19.2.8"
+  "scripts": {
+    "dev": "npm run dev --workspace @portfolio/web",
+    "build": "npm run build --workspace @portfolio/web",
+    "start": "npm run start --workspace @portfolio/web",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit -p apps/web"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.1",
-    "tailwindcss": "^4",
     "typescript": "^5"
   }
 }

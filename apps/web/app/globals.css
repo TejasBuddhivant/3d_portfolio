@@ -1,0 +1,19 @@
+/*
+ * Minimal global styles — everything else is handled by MUI's CssBaseline
+ * and the MUI theme in @portfolio/ui.
+ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Keep anchored sections clear of the sticky navbar when scrolling. */
+section[id] {
+  scroll-margin-top: 88px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
