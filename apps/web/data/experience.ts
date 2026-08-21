@@ -2,17 +2,16 @@ import type { ExperienceItem } from "./types";
 
 export const experience: readonly ExperienceItem[] = [
   {
-    id: "fullstack-internship",
-    position: "Full Stack Developer Intern",
-    company: "Tech Solutions Pvt. Ltd.",
-    duration: "Jan 2025 — Present",
-    location: "Pune, India",
+    id: "cynia-ai-internship",
+    position: "AI Intern",
+    company: "Cynia.ai",
+    duration: "Present",
+    location: "Remote / India",
     description: [
-      "Building and maintaining REST APIs with Java and Spring Boot that serve a customer-facing web application.",
-      "Developed responsive React interfaces with MUI, improving task completion time for core user flows.",
-      "Collaborated in an agile team using Git-based code reviews and sprint planning.",
+      "Working on integrating and fine-tuning artificial intelligence models for innovative web solutions.",
+      "Collaborating with the development team to build intelligent and responsive applications.",
     ],
-    technologies: ["Java", "Spring Boot", "React", "MySQL", "Git"],
+    technologies: ["AI / Machine Learning", "Python", "Next.js", "React"],
   },
   {
     id: "freelance-projects",
