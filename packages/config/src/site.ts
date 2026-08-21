@@ -12,7 +12,7 @@ export const siteConfig = {
   description:
     "Portfolio of Tej Buddhivant — Full Stack Developer specializing in Java, Spring Boot, React and modern web technologies.",
   url: "https://tejbuddhivant.dev",
-  email: "tej.buddhivant@example.com",
+  email: "tejasgb077@gmail.com",
   location: "Pune, Maharashtra, India",
   availability: "Open to full-time roles and freelance projects",
   heroHighlights: [
