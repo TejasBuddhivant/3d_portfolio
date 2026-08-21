@@ -5,7 +5,7 @@ import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import IconButton from "@mui/material/IconButton";
+// import IconButton from "@mui/material/IconButton";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
@@ -57,6 +57,7 @@ const contactChannels = [
     icon: LocationOnOutlinedIcon,
     label: "Location",
     value: siteConfig.location,
+    href: undefined,
   },
 ] as const;
 
