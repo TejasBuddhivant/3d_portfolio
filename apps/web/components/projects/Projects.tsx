@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import { alpha } from "@mui/material/styles";
 import { Reveal, SectionTitle } from "@portfolio/ui";
 import { useProjectFilter } from "@portfolio/hooks";
 import ProjectCard from "./ProjectCard";
@@ -27,7 +28,7 @@ export default function Projects() {
       aria-label="Projects"
       sx={{
         py: { xs: 8, md: 12 },
-        backgroundColor: "rgba(31, 21, 12, 0.35)",
+        backgroundColor: (t) => alpha(t.palette.background.paper, 0.35),
       }}
     >
       <Container maxWidth="lg">

@@ -1,10 +1,10 @@
 "use client";
 
 import Button, { type ButtonProps } from "@mui/material/Button";
-import { glassTints } from "../theme/theme";
+import { glassTints, palette } from "../theme/theme";
 
 export interface GradientButtonProps extends ButtonProps {
-  /** "solid" = filled cream CTA, "outline" = ghost button. */
+  /** "solid" = filled amber-gradient CTA, "outline" = ghost button. */
   variantStyle?: "solid" | "outline";
 }
 
@@ -35,23 +35,23 @@ export function GradientButton({
           },
         },
         variantStyle === "solid" && {
-          backgroundColor: "#E1DCC9",
-          color: "#000000",
+          backgroundImage: `linear-gradient(135deg, ${palette.amber} 0%, ${palette.sienna} 100%)`,
+          color: palette.black,
           "&:hover": {
-            backgroundColor: "#F2EEE0",
-            boxShadow: "0 10px 28px rgba(225, 220, 201, 0.18)",
+            backgroundImage: `linear-gradient(135deg, #FFCE5C 0%, #DE8E2B 100%)`,
+            boxShadow: `0 10px 30px rgba(255, 182, 39, 0.32)`,
             transform: "translateY(-2px)",
           },
         },
         variantStyle === "outline" && {
           backgroundColor: "transparent",
-          color: "#E1DCC9",
+          color: "text.primary",
           border: "1px solid",
           borderColor: glassTints.border,
           "&:hover": {
-            backgroundColor: "rgba(225, 220, 201, 0.06)",
+            backgroundColor: glassTints.subtle,
             borderColor: glassTints.borderHover,
-            color: "#FFFFFF",
+            color: "primary.main",
             transform: "translateY(-2px)",
           },
         },

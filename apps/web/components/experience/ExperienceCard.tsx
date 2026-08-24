@@ -39,7 +39,7 @@ export default function ExperienceCard({
             border: "2px solid",
             borderColor: "primary.main",
             backgroundColor: "background.default",
-            boxShadow: "0 0 0 4px rgba(225, 220, 201, 0.08)",
+            boxShadow: "0 0 0 4px rgba(255, 182, 39, 0.14)",
             transition: "box-shadow 200ms ease",
           }}
         />

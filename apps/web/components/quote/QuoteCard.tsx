@@ -134,7 +134,7 @@ export default function QuoteCard() {
                           "transform 160ms ease, border-color 160ms ease, background-color 160ms ease",
                         "&:hover": {
                           transform: "translateY(-2px)",
-                          borderColor: "#E1DCC9",
+                          borderColor: palette.amber,
                           backgroundColor: glassTints.soft,
                         },
                       }}

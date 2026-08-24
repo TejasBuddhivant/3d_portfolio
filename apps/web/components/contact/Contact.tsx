@@ -10,6 +10,7 @@ import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
+import { alpha } from "@mui/material/styles";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -116,7 +117,7 @@ export default function Contact() {
       aria-label="Contact"
       sx={{
         py: { xs: 8, md: 12 },
-        backgroundColor: "rgba(31, 21, 12, 0.35)",
+        backgroundColor: (t) => alpha(t.palette.background.paper, 0.35),
       }}
     >
       <Container maxWidth="lg">

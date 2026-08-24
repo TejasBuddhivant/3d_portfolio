@@ -1,14 +1,12 @@
 "use client";
 
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
-import CssBaseline from "@mui/material/CssBaseline";
-import { ThemeProvider } from "@mui/material/styles";
-import { theme } from "@portfolio/ui";
 import StoreProvider from "./StoreProvider";
+import ThemeModeProvider from "./ThemeModeProvider";
 
 /**
  * Single client boundary that wires up:
- * Emotion SSR cache → MUI theme → global baseline → Redux store.
+ * Emotion SSR cache → Redux store → mode-aware MUI theme → global baseline.
  */
 export default function AppProviders({
   children,
@@ -17,10 +15,9 @@ export default function AppProviders({
 }) {
   return (
     <AppRouterCacheProvider options={{ key: "mui", enableCssLayer: true }}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline enableColorScheme />
-        <StoreProvider>{children}</StoreProvider>
-      </ThemeProvider>
+      <StoreProvider>
+        <ThemeModeProvider>{children}</ThemeModeProvider>
+      </StoreProvider>
     </AppRouterCacheProvider>
   );
 }

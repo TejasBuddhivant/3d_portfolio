@@ -9,7 +9,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { siteConfig } from "@portfolio/config";
-import { glassTints, palette } from "@portfolio/ui";
+import { glassTints } from "@portfolio/ui";
 
 const socialButtons = [
   { label: "GitHub", href: "https://github.com/tejbuddhivant", icon: GitHubIcon },
@@ -28,7 +28,7 @@ export default function Footer() {
       sx={{
         borderTop: "1px solid",
         borderColor: glassTints.border,
-        backgroundColor: palette.brown,
+        backgroundColor: "background.paper",
         py: { xs: 5, md: 6 },
         mt: { xs: 8, md: 12 },
       }}

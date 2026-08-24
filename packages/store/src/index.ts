@@ -11,8 +11,10 @@ export {
   setActiveSection,
   openMobileNav,
   closeMobileNav,
+  setThemeMode,
+  toggleThemeMode,
 } from "./slices/uiSlice";
-export type { UiState } from "./slices/uiSlice";
+export type { UiState, ThemeMode } from "./slices/uiSlice";
 export { fallbackQuotes, getFallbackQuote } from "./constants/fallbackQuotes";
 export { default as rootSaga } from "./sagas/rootSaga";
 export { fetchQuoteSaga, watchFetchQuote, MAX_QUOTE_ATTEMPTS } from "./sagas/quoteSaga";

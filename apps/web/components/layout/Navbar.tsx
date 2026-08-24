@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { flushSync } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import AppBar from "@mui/material/AppBar";
@@ -15,12 +16,16 @@ import ListItemText from "@mui/material/ListItemText";
 import Stack from "@mui/material/Stack";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import { alpha, useTheme } from "@mui/material/styles";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { navItems } from "@portfolio/config";
 import {
   closeMobileNav,
   openMobileNav,
+  toggleThemeMode,
   useAppDispatch,
   useAppSelector,
 } from "@portfolio/store";
@@ -34,6 +39,8 @@ export default function Navbar() {
   const dispatch = useAppDispatch();
   const activeSection = useAppSelector((state) => state.ui.activeSection);
   const mobileNavOpen = useAppSelector((state) => state.ui.mobileNavOpen);
+  const themeMode = useAppSelector((state) => state.ui.themeMode);
+  const muiTheme = useTheme();
   const scrollToSection = useScrollToSection();
   const [scrolled, setScrolled] = useState(false);
 
@@ -60,13 +67,52 @@ export default function Navbar() {
     // Other pages: let the Link navigate to /#sectionId.
   };
 
+  /**
+   * Reveals the incoming theme as a circle expanding from the toggle button
+   * (View Transitions API). Browsers without support and reduced-motion users
+   * get an instant swap instead. The click origin is passed to the CSS keyframes
+   * in globals.css via --theme-reveal-* custom properties.
+   */
+  const handleToggleTheme = (event: React.MouseEvent<HTMLElement>) => {
+    // Structural typing keeps this compatible with every TS 5.x lib.dom.
+    const doc = document as Document & {
+      startViewTransition?: (updateCallback: () => void) => unknown;
+    };
+
+    const applyModeChange = () => flushSync(() => dispatch(toggleThemeMode()));
+
+    if (
+      typeof doc.startViewTransition !== "function" ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      applyModeChange();
+      return;
+    }
+
+    const { clientX, clientY } = event;
+    // Farthest corner from the click → radius that covers the whole viewport.
+    const reach = Math.hypot(
+      Math.max(clientX, window.innerWidth - clientX),
+      Math.max(clientY, window.innerHeight - clientY),
+    );
+
+    const rootStyle = document.documentElement.style;
+    rootStyle.setProperty("--theme-reveal-x", `${clientX}px`);
+    rootStyle.setProperty("--theme-reveal-y", `${clientY}px`);
+    rootStyle.setProperty("--theme-reveal-r", `${reach}px`);
+
+    doc.startViewTransition(applyModeChange);
+  };
+
   return (
     <AppBar
       position="sticky"
       elevation={0}
       sx={{
         top: 0,
-        backgroundColor: scrolled ? "rgba(0, 0, 0, 0.78)" : "transparent",
+        backgroundColor: scrolled
+          ? alpha(muiTheme.palette.background.default, 0.82)
+          : "transparent",
         backdropFilter: scrolled ? "blur(14px)" : "none",
         WebkitBackdropFilter: scrolled ? "blur(14px)" : "none",
         borderBottom: "1px solid",
@@ -160,6 +206,24 @@ export default function Navbar() {
             })}
           </Stack>
 
+          {/* Colour scheme toggle */}
+          <IconButton
+            aria-label={
+              themeMode === "dark"
+                ? "Switch to light theme"
+                : "Switch to dark theme"
+            }
+            aria-pressed={themeMode === "light"}
+            onClick={handleToggleTheme}
+            sx={{
+              color: "text.primary",
+              transition: "transform 180ms ease",
+              "&:hover": { transform: "scale(1.08)", backgroundColor: glassTints.soft },
+            }}
+          >
+            {themeMode === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
+          </IconButton>
+
           {/* Mobile menu trigger */}
           <IconButton
             aria-label={mobileNavOpen ? "Close navigation menu" : "Open navigation menu"}
@@ -193,7 +257,7 @@ export default function Navbar() {
           paper: {
             sx: {
               width: DRAWER_WIDTH,
-              backgroundColor: "rgba(31, 21, 12, 0.97)",
+              backgroundColor: alpha(muiTheme.palette.background.paper, 0.97),
               backdropFilter: "blur(16px)",
               WebkitBackdropFilter: "blur(16px)",
               borderLeft: "1px solid",

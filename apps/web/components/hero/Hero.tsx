@@ -16,10 +16,10 @@ import { useScrollToSection } from "@portfolio/hooks";
 import { glassTints, GradientButton, palette } from "@portfolio/ui";
 
 const socialButtons = [
-  { label: "GitHub", href: "https://github.com/tejbuddhivant", icon: GitHubIcon },
+  { label: "GitHub", href: "https://github.com/TejasBuddhivant", icon: GitHubIcon },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/tejbuddhivant",
+    href: "https://www.linkedin.com/in/TejasBuddhivant",
     icon: LinkedInIcon,
   },
   { label: "Email", href: `mailto:${siteConfig.email}`, icon: EmailIcon },

@@ -1,4 +1,13 @@
-export { palette, glassTints, theme } from "./theme/theme";
+export {
+  palette,
+  lightPalette,
+  glassTints,
+  lightGlassTints,
+  createAppTheme,
+  darkTheme,
+  lightTheme,
+} from "./theme/theme";
+export type { ThemeMode } from "./theme/theme";
 export { GlassCard } from "./components/GlassCard";
 export type { GlassCardProps } from "./components/GlassCard";
 export { SectionTitle } from "./components/SectionTitle";

@@ -1,7 +1,7 @@
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import Stack from "@mui/material/Stack";
-import { glassTints } from "@portfolio/ui";
+import { glassTints, palette } from "@portfolio/ui";
 
 export const projectFilters = [
   "All",
@@ -57,12 +57,12 @@ export default function ProjectFilter({
               backgroundColor: "transparent",
             },
             "&.Mui-selected": {
-              backgroundColor: "#E1DCC9",
-              borderColor: "#E1DCC9",
+              backgroundColor: palette.amber,
+              borderColor: palette.amber,
               color: "#000000",
               "&:hover": {
-                backgroundColor: "#F2EEE0",
-                borderColor: "#F2EEE0",
+                backgroundColor: "#FFCE5C",
+                borderColor: "#FFCE5C",
                 color: "#000000",
               },
             },
