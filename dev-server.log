@@ -1,89 +1,14 @@
 
-> @portfolio/web@0.1.0 dev
+> portfolio@1.0.0 dev
 > next dev
 
 ▲ Next.js 16.3.1 (Turbopack)
 - Local:         http://localhost:3000
 - Network:       http://10.168.79.7:3000
-✓ Ready in 2.3min
-✓ Running next.config.ts took 722ms
-⚠ Slow filesystem detected. The benchmark took 907ms. If \\?\T:\Learnings\Next Js Learning\portfolio_app_ai\apps\web\.next\dev is a network drive, consider moving it to a local folder.
-See more: https://nextjs.org/docs/app/guides/local-development
+✓ Ready in 1951ms
+✓ Running next.config.ts took 34ms
 
 ○ Compiling / ...
- GET / 200 in 101s (next.js: 100s, application-code: 1323ms)
-✓ Finished writing to filesystem cache in 19.8s
- GET / 200 in 422ms (next.js: 57ms, application-code: 365ms)
- GET / 200 in 358ms (next.js: 5ms, application-code: 353ms)
- GET / 200 in 368ms (next.js: 5ms, application-code: 363ms)
- GET / 200 in 392ms (next.js: 5ms, application-code: 387ms)
- GET / 200 in 341ms (next.js: 5ms, application-code: 336ms)
- GET / 200 in 341ms (next.js: 5ms, application-code: 337ms)
- GET / 200 in 360ms (next.js: 5ms, application-code: 355ms)
- GET / 200 in 649ms (next.js: 9ms, application-code: 641ms)
-[browser] Uncaught Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-https://react.dev/link/hydration-mismatch
-
-  ...
-    <div className="MuiGrid-ro...">
-      <Reveal delay={0} sx={{height:"100%"}}>
-        <Box ref={{current:null}} sx={[...]}>
-          <Styled(div) as="div" ref={{current:null}} className="MuiBox-root" theme={{...}} sx={[...]}>
-            <Insertion>
-            <div className="MuiBox-roo..." ref={{current:null}}>
-              <SkillCard>
-                <Box sx={{height:"100%", ...}}>
-                  ...
-                    <Grid direction="row" spacing={1} useFlexGap={true} flexWrap="wrap" sx={{mt:2.5}}>
-                      <MuiStack-root as="div" ownerState={{...}} ref={null} className="MuiStack-root" ...>
-                        <Insertion>
-                        <div className="MuiStack-r...">
-                          <Chip label="React.js" variant="outlined" icon={{...}} sx={{...}}>
-                            <MuiChip-root as="div" onClick={function Chip.Chip.useSlot} ...>
-                              <Insertion>
-                              <div onClick={function Chip.Chip.useSlot} onKeyDown={function Chip.Chip.useSlot} ...>
-                                <MuiChip-label className="MuiChip-la..." ref={null} ownerState={{label:"Rea...", ...}}>
-                                  <Insertion>
-+                                 <span className="MuiChip-label MuiChip-labelMedium mui-16cgrcw-MuiChip-label">
--                                 <svg
--                                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiChip-icon MuiChip-iconMedi..."
--                                   focusable="false"
--                                   aria-hidden="true"
--                                   viewBox="0 0 24 24"
--                                   data-testid="CheckCircleOutlineRoundedIcon"
--                                 >
-                          ...
-
-    at <unknown> (https://react.dev/link/hydration-mismatch)
-    at span (<anonymous>)
-    at <anonymous> (components\skills\SkillCard.tsx:81:11)
-    at Array.map (<anonymous>:1:18)
-    at SkillCard (components\skills\SkillCard.tsx:80:23)
-    at <anonymous> (components\skills\Skills.tsx:32:17)
-    at Array.map (<anonymous>:1:18)
-    at Skills (components\skills\Skills.tsx:29:24)
-    at HomePage (app\page.tsx:15:7)
-  79 |       <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap" sx={{ mt: 2.5 }}>
-  80 |         {group.skills.map((skill) => (
-> 81 |           <Chip
-     |           ^
-  82 |             key={skill}
-  83 |             label={skill}
-  84 |             variant="outlined"
+ GET / 200 in 6.5s (next.js: 4.0s, application-code: 2.5s)
+ GET / 200 in 1426ms (next.js: 1159ms, application-code: 267ms)
 [?25h
-npm error Lifecycle script `dev` failed with error:
-npm error code 1
-npm error path T:\Learnings\Next Js Learning\portfolio_app_ai\apps\web
-npm error workspace @portfolio/web@0.1.0
-npm error location T:\Learnings\Next Js Learning\portfolio_app_ai\apps\web
-npm error command failed
-npm error command C:\WINDOWS\system32\cmd.exe /d /s /c next dev
